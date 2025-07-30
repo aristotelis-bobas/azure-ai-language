@@ -37,8 +37,11 @@ def main():
             project_name=project_name,
             deployment_name=deployment_name
         )
+        
+        print("Calling blocking result call")
 
         document_results = operation.result()
+        print("Blocking result call completed")
 
         for doc, classification_result in zip(files, document_results):
             if classification_result.kind == "CustomDocumentClassification":
